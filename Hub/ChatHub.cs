@@ -19,7 +19,7 @@ public class ChatHub: Microsoft.AspNetCore.SignalR.Hub
         await Groups.AddToGroupAsync(Context.ConnectionId, userChatRoomConnection.Room!);
         _connection[Context.ConnectionId] = userChatRoomConnection;
         // Notifies all user in the room that the new user has joined
-        await Clients.Group(userChatRoomConnection.Room!).SendAsync("ReceiveMessage", "App Chat Room", $"{userChatRoomConnection.User} has joined the group");
+        await Clients.Group(userChatRoomConnection.Room!).SendAsync("ReceiveMessage", "App Chat Room", $"{userChatRoomConnection.User} has joined the group", DateTime.Now);
         // Updates the list of connected users in the room
         await SendConnectedUser(userChatRoomConnection.Room!);
     }
