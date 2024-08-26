@@ -1,0 +1,6 @@
+@AngNetChat_HostAddress = http://localhost:5157
+
+GET {{AngNetChat_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
